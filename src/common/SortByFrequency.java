@@ -1,14 +1,16 @@
+package common;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
-import javax.swing.text.html.HTMLDocument.Iterator;
-
-public class Question1Test {
-	public static LinkedList sortByFreq(int[]input1 ,int size) {
+public class SortByFrequency {
+	
+public static void sortByFreq(int[]input1 ,int size) {
 		
 		int[] array =input1;
 		
@@ -46,37 +48,62 @@ public class Question1Test {
 			fr = (int) entry.getValue();
 			
 			if (fr == sortFreq[j]) {
-				if(sortFreq[j] == sortFreq[j+1])
-					j++;
+					if(sortFreq[j] == sortFreq[j+1]) //skip all same freq element added once
+							j++;
 					for (int i1 = 1; i1 <=fr&&out.size()<=array.length; i1++) {
 					out.addLast(entry.getKey());
-					}
-					
-					
-							}
-			
+								}
+										
+		}
 			
 		}
 		j++;
 		
-		System.out.println("out" + out);
+		
 		
 		}
-		
-		
-		
-		
-		
-		return out;
+		System.out.println("");
+		System.out.println("sorted By freq" + out);
+		//return out;
 		
 		
 	}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		test1
-		
-
+public static void main(String Arg[]) {
+	Scanner in =new Scanner(System.in);
+	int T,size;
+	int[] input1=new int[5];
+	int[] input2=new int[5];
+	System.out.println("Enter number of test" );
+	T=in.nextInt();
+	System.out.println("Enter size of array" );
+	size=in.nextInt();
+	System.out.println("Enter Element array" );
+	for(int i=0;i<size;i++)
+	{
+		input1[i]=in.nextInt();
 	}
-
+	
+	System.out.println("Enter Element input 2 array" );
+	for(int i=0;i<size;i++)
+	{
+		input2[i]=in.nextInt();
+	}
+	
+	System.out.print("]");
+	System.out.print("\n");
+	System.out.print("\ninput1 [");
+	for(int i=0;i<size;i++)
+	{
+		System.out.print(" "+input1[i]);
+	}
+	System.out.print("]");
+	sortByFreq(input1 ,5);
+	System.out.print("\n");
+	System.out.print("\ninput2 [");
+	for(int i=0;i<size;i++)
+	{
+		System.out.print(" "+input2[i]);
+	}
+	sortByFreq(input2 ,5);
+}
 }
